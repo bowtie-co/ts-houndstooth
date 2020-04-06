@@ -14,7 +14,7 @@ export const AppDashboard = ({ children, ...props }) => {
         <Col>
           <h1>AppDashboard</h1>
           <p>Welcome, {user.login}</p>
-          <img src={user.avatar_url} />
+          <img alt={`${user.login}'s Avatar`} src={user.avatar_url} />
         </Col>
       </Row>
     </Container>

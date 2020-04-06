@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { App, AppProps } from './App';
 
-test('renders learn react link', () => {
+test('renders coming soon link', () => {
   const props: AppProps = {
     link: {
       text: 'Coming Soon',
