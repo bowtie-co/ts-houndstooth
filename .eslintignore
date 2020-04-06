@@ -1,0 +1,4 @@
+*.d.ts
+src/serviceWorker.ts
+dist/**/*.js
+node_modules

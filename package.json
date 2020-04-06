@@ -1,7 +1,6 @@
 {
-  "name": "ts-houndstooth",
+  "name": "@bowtie/ts-houndstooth",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -19,7 +18,18 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "ci:audit": "npm audit",
+    "ci:install": "npm install",
+    "ci:setup": "npm run ci:install",
+    "ci:test": "npm test",
+    "ci:lint": "npm run lint",
+    "preci": "npm run ci:audit && npm run ci:lint",
+    "ci": "npm run ci:test",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
+    "lint:fix": "eslint src/**/*.{js,jsx,ts,tsx} --fix",
+    "preversion": "npm run ci",
+    "postversion": "npm publish && git push --no-verify --follow-tags"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +45,29 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bowtie-co/ts-houndstooth.git"
+  },
+  "author": {
+    "name": "Bowtie",
+    "url": "https://bowtie.co",
+    "organization": true
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bowtie-co/ts-houndstooth/issues"
+  },
+  "homepage": "https://houndstooth.cloud",
+  "devDependencies": {
+    "@bowtie/prettier": "^1.4.0",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "eslint": "^6.8.0",
+    "eslint-config-bowtie": "^1.4.1",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^2.0.2"
   }
 }
