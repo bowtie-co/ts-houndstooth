@@ -1,18 +1,20 @@
-import Api from '@bowtie/api';
-import { navigate } from 'hookrouter';
-import { auth } from '.';
+import { Api, ApiConfig } from '@bowtie/ts-api';
+// import { navigate } from 'hookrouter';
+// import { auth } from '.';
 
 export const api = new Api({
-  root: process.env.REACT_APP_API_BASE_URL || 'http://localhost:4000',
-  stage: 'dev',
-  prefix: 'api',
-  version: 'v1',
-  secureOnly: false,
-  authorization: 'Bearer'
+  base: process.env.REACT_APP_API_BASE_URL || 'http://localhost:4000',
+  defaultOptions: {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + process.env.REACT_APP_API_AUTH_TOKEN
+    }
+  }
 });
 
-api.on('401', (resp) => {
-  console.warn('401 - Unauthorized', resp);
-  auth.logout();
-  // navigate('/');
-});
+// api.on('401', (resp) => {
+//   console.warn('401 - Unauthorized', resp);
+//   auth.logout();
+//   // navigate('/');
+// });
