@@ -1,33 +1,41 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 import { WithLoader, WithChildren } from '../';
-import { DebugProps } from '../../organisms';
+import { IHasGithubProps } from '../';
+import { IGithubRepo } from '@bowtie/ts-github';
 
-export const WithGithubRepo: FunctionComponent<{}> = ({ children, ...props }) => {
+export const WithGithubRepo: FunctionComponent<IHasGithubProps> = ({ children, ...props }) => {
   console.debug('WithGithubRepo', { children, props });
 
-  const [repo, setRepo] = useState();
-  const [loading, setLoading] = useState(true);
+  const [repo, setRepo] = useState<IGithubRepo>();
+  const [loading, setLoading] = useState<boolean>(true);
   const { github, pageProps } = props;
 
   useEffect(() => {
-    setLoading(true);
+    const loadRepo = async (): Promise<void> => {
+      if (github) {
+        const repo = await github.repo(pageProps);
+        console.log('loaded repo', repo);
+        setRepo(repo);
+      }
+    };
 
-    github
-      .repo(pageProps)
-      .then((data) => {
-        setRepo(data.repo);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.warn(err);
-        setLoading(false);
-      });
-  }, [github, pageProps]);
+    try {
+      setLoading(true);
+      loadRepo();
+    } catch (err) {
+      console.warn('Caught Error:', err.message || err);
+    }
+
+    setLoading(false);
+  }, [github, setLoading, setRepo, pageProps]);
 
   return (
     <WithLoader isLoading={loading}>
       <WithChildren children={children} {...props} {...{ repo }} />
-      <DebugProps debug {...repo} />
     </WithLoader>
   );
 };
+
+export interface IHasGithubRepoProps extends IHasGithubProps {
+  repo: IGithubRepo;
+}

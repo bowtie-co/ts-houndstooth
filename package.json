@@ -4,7 +4,7 @@
   "dependencies": {
     "@airbrake/browser": "^1.0.6",
     "@bowtie/ts-api": "^0.3.4",
-    "@bowtie/ts-github": "^0.2.0",
+    "@bowtie/ts-github": "^1.0.2",
     "@emotion/core": "^10.0.28",
     "@octokit/rest": "^17.1.4",
     "@testing-library/jest-dom": "^4.2.4",

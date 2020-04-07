@@ -1,24 +1,22 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 import { WithLoader, WithChildren } from '../';
-import { GithubClient, IGithubRepo } from '@bowtie/ts-github';
-// import {
-//   DebugProps
-// } from '../../organisms';
+import { IHasGithubProps } from '../';
+import { IGithubRepo } from '@bowtie/ts-github';
 
-export interface IGithubProps {
-  github: GithubClient;
-}
-
-export const WithGithubRepos: FunctionComponent<IGithubProps> = ({ children, ...props }) => {
+export const WithGithubRepos: FunctionComponent<IHasGithubProps> = ({ children, ...props }) => {
   console.debug('WithGithubRepos', { children, props });
 
   const [repos, setRepos] = useState<IGithubRepo[]>();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const { github } = props;
 
   useEffect(() => {
     const loadRepos = async (): Promise<void> => {
-      setRepos(await github.repos());
+      if (github) {
+        const repos = await github.repos();
+        console.log('loaded repos', repos);
+        setRepos(repos);
+      }
     };
 
     try {
@@ -37,3 +35,7 @@ export const WithGithubRepos: FunctionComponent<IGithubProps> = ({ children, ...
     </WithLoader>
   );
 };
+
+export interface IHasGithubReposProps extends IHasGithubProps {
+  repos: IGithubRepo[];
+}

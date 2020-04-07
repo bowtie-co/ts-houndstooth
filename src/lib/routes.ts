@@ -1,12 +1,12 @@
 import { storage } from '.';
 import { injectPageProps } from '.';
-import { NotFound, RepoListPage, RepoShowPage, CollectionListPage, CollectionShowPage } from '../pages';
+import { NotFound, RepoListPage, RepoShowPage } from '../pages';
 
 export const pageRoutes = {
   '/': RepoListPage,
   '/:owner/:repo': RepoShowPage,
-  '/:owner/:repo/collections': CollectionListPage,
-  '/:owner/:repo/collections/:collection': CollectionShowPage,
+  // '/:owner/:repo/collections': CollectionListPage,
+  // '/:owner/:repo/collections/:collection': CollectionShowPage,
   '/*': NotFound
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Button } from 'reactstrap';
 
 import { auth } from '../../lib';

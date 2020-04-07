@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 // import { useTitle } from 'hookrouter';
 import { WithApp, WithGithubAuth, WithGithubRepo, WithCollection } from '../../ecosystems';
 // import {

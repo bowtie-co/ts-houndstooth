@@ -2,7 +2,7 @@ export * from './Home';
 
 export * from './NotFound';
 
-export * from './Collection';
+// export * from './Collection';
 export * from './Repo';
 
 // export * from './Service/Index';

@@ -18,5 +18,5 @@ export const WithGithub: FunctionComponent<IWithGithubProps> = ({ children, toke
 };
 
 export interface IHasGithubProps extends IDefaultProps {
-  github: GithubClient;
+  github?: GithubClient;
 }
