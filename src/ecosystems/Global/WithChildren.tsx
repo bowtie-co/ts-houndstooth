@@ -1,10 +1,13 @@
-import React, { FC, DetailedReactHTMLElement } from 'react';
-import { IDefaultProps } from '../../types';
+import React, { FC, ReactElement, ReactNode } from 'react';
 
-export const WithChildren: FC<IDefaultProps> = ({ children, ...props }): JSX.Element => {
+export const WithChildren: ReactNode = ({ children, ...props }): ReactNode => {
   console.debug('WithChildren', { props });
 
   return (Array.isArray(children) ? children : [children]).map((c, i) =>
-    React.cloneElement(c, Object.assign(props, { key: i }))
+    React.cloneElement(c as ReactElement, Object.assign(props, { key: i }))
   );
 };
+
+export interface IHasChildrenProps {
+  children: ReactNode;
+}

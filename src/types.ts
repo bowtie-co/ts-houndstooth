@@ -1,6 +1,6 @@
-// import React, { ReactNode } from 'react';
+import React, { ReactChild, ReactNode } from 'react';
 
 export interface IDefaultProps {
-  children?: any;
+  // children?: ReactNode;
   // children?: (props?: any) => JSX.Element | null;
 }
