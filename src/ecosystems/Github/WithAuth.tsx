@@ -1,10 +1,10 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { auth } from '../../lib';
 import { WithGithub, WithGithubUser, WithChildren } from '../';
 import { LoginGithub } from '../../organisms';
 import { IDefaultProps } from '../../types';
 
-export const WithGithubAuth: FunctionComponent<IDefaultProps> = ({ children, ...props }) => {
+export const WithGithubAuth: FC<IDefaultProps> = ({ children, ...props }) => {
   const [token, setToken] = useState<string>('');
   const [isAuthorized, setIsAuthorized] = useState<boolean>(auth.isAuthenticated());
 

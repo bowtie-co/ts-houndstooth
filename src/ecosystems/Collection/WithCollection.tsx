@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { WithGithubAuth, WithGithubRepo, WithChildren, IHasGithubRepoProps, IHasGithubUserProps } from '../';
 import { IDefaultProps } from '../../types';
 
@@ -6,7 +6,7 @@ export interface IWithCollectionProps extends IHasGithubRepoProps, IHasGithubUse
   // ...
 }
 
-export const WithCollection: FunctionComponent<IWithCollectionProps> = ({ children, ...props }) => {
+export const WithCollection: FC<IWithCollectionProps> = ({ children, ...props }) => {
   console.debug('WithCollection', { children, props });
 
   const { pageProps } = props;

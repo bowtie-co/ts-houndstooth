@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { WithChildren } from '.';
 import { AppNavbar } from '../../organisms';
 
-export const WithNavbar: FunctionComponent<{}> = ({ children, ...props }) => {
+export const WithNavbar: FC<{}> = ({ children, ...props }) => {
   return (
     <Fragment>
       <AppNavbar {...props} />

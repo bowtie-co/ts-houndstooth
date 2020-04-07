@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 // import { A } from 'hookrouter';
 import { Container, Row, Col, Card, CardTitle, CardBody, Button } from 'reactstrap';
 

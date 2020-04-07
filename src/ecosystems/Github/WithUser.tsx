@@ -1,9 +1,9 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { IGithubUser } from '@bowtie/ts-github';
 import { WithLoader, WithChildren } from '../';
 import { IHasGithubProps } from '../';
 
-export const WithGithubUser: FunctionComponent<IHasGithubProps> = ({ children, ...props }) => {
+export const WithGithubUser: FC<IHasGithubProps> = ({ children, ...props }) => {
   console.debug('WithGithubUser', { children, props });
 
   const [user, setUser] = useState<IGithubUser>();

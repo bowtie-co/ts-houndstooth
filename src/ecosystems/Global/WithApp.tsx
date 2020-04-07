@@ -1,15 +1,28 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { WithNavbar, WithAlert, WithChildren } from '.';
-import { IDefaultProps } from '../../types';
+import { IHasGithubRepoProps, IHasGithubUserProps } from '../';
+// import { IDefaultProps } from '../../types';
 
-export const WithApp: FunctionComponent<IDefaultProps> = ({ children, ...props }) => {
+export interface IWithAppProps extends IHasGithubRepoProps, IHasGithubUserProps {
+  // ...
+}
+
+export const WithApp: FC<IWithAppProps> = ({ children, ...props }) => {
   console.debug('WithApp', { children, props });
+
+  const app = {
+    name: 'Houndstooth'
+  };
 
   return (
     <WithNavbar {...props}>
       <WithAlert>
-        <WithChildren {...props} children={children} />
+        <WithChildren children={children} {...props} {...{ app }} />
       </WithAlert>
     </WithNavbar>
   );
 };
+
+export interface IHasAppProps extends IHasGithubRepoProps, IHasGithubUserProps {
+  app?: string;
+}

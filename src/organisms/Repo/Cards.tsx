@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { navigate } from 'hookrouter';
 import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 import { GithubClient, IGithubRepo } from '@bowtie/ts-github';
@@ -10,7 +10,7 @@ export interface IRepoCardsProps {
   repos: IGithubRepo[];
 }
 
-export const RepoCards: FunctionComponent<IRepoCardsProps> = ({ repos }) => {
+export const RepoCards: FC<IRepoCardsProps> = ({ repos }) => {
   return (
     <Row>
       {repos.map((repo, index) => (

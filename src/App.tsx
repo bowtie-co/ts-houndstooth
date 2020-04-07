@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -9,7 +9,7 @@ export interface AppProps {
   };
 }
 
-export const App: FunctionComponent<AppProps> = (props: AppProps) => {
+export const App: FC<AppProps> = (props: AppProps) => {
   return (
     <div className="App">
       <header className="App-header">

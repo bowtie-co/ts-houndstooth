@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { Button } from 'reactstrap';
 
 export const ButtonBasic = ({ children, className, ...props }) => {

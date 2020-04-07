@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { A, navigate } from 'hookrouter';
 import {
   // Badge,

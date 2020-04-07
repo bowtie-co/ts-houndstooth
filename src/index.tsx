@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,7 +11,7 @@ const props = {
   routes
 };
 
-const AppWithErrorBoundary: FunctionComponent<{}> = () => (
+const AppWithErrorBoundary: FC<{}> = () => (
   <WithErrorBoundary>
     <WithRoutes {...props} />
   </WithErrorBoundary>

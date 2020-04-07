@@ -1,9 +1,9 @@
-import React, { Dispatch, SetStateAction, FunctionComponent, useState, Fragment } from 'react';
+import React, { Dispatch, SetStateAction, FC, useState, Fragment } from 'react';
 import { WithChildren } from '.';
 import { AppAlert } from '../../organisms';
 import { IDefaultProps } from '../../types';
 
-export const WithAlert: FunctionComponent<IDefaultProps> = ({ children, ...props }) => {
+export const WithAlert: FC<IDefaultProps> = ({ children, ...props }) => {
   console.debug('WithAlert', { props });
 
   const [alertOpen, setAlertOpen] = useState<boolean>(false);

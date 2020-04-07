@@ -1,9 +1,9 @@
-import React, { FunctionComponent, Fragment } from 'react';
+import React, { FC, Fragment } from 'react';
 // import { navigate } from 'hookrouter';
 import { Alert, Container, Row, Col } from 'reactstrap';
 import { IHasAlertProps } from '../../ecosystems';
 
-export const AppAlert: FunctionComponent<IHasAlertProps> = ({ children, ...props }) => {
+export const AppAlert: FC<IHasAlertProps> = ({ children, ...props }) => {
   console.debug('AppAlert', { props });
 
   // const [ alertOpen, setAlertOpen ] = useState(false);

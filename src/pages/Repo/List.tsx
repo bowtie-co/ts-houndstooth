@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { useTitle } from 'hookrouter';
 import { storage } from '../../lib';
 import { WithApp, WithGithubAuth, WithGithubRepos } from '../../ecosystems';
@@ -13,7 +13,7 @@ export interface IRepoListPageProps {
   repos: IGithubRepo[];
 }
 
-export const RepoListPage: FunctionComponent<IRepoListPageProps> = ({ children, ...props }) => {
+export const RepoListPage: FC<IRepoListPageProps> = ({ children, ...props }) => {
   console.debug('RepoListPage', { props });
 
   useTitle(`Select a project (repository)`);

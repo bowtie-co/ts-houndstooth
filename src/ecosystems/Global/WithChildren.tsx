@@ -1,7 +1,7 @@
-import React, { FunctionComponent, DetailedReactHTMLElement } from 'react';
-// import { IDefaultProps } from '../../types';
+import React, { FC, DetailedReactHTMLElement } from 'react';
+import { IDefaultProps } from '../../types';
 
-export const WithChildren: FunctionComponent<any> = ({ children, ...props }) => {
+export const WithChildren: FC<IDefaultProps> = ({ children, ...props }): JSX.Element => {
   console.debug('WithChildren', { props });
 
   return (Array.isArray(children) ? children : [children]).map((c, i) =>

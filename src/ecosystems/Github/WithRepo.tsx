@@ -1,9 +1,9 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { WithLoader, WithChildren } from '../';
 import { IHasGithubProps } from '../';
 import { IGithubRepo } from '@bowtie/ts-github';
 
-export const WithGithubRepo: FunctionComponent<IHasGithubProps> = ({ children, ...props }) => {
+export const WithGithubRepo: FC<IHasGithubProps> = ({ children, ...props }) => {
   console.debug('WithGithubRepo', { children, props });
 
   const [repo, setRepo] = useState<IGithubRepo>();

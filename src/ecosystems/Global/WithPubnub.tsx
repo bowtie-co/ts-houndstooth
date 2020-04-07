@@ -3,7 +3,7 @@ import React, { Fragment, useEffect } from 'react';
 import { pubnub } from '../../lib';
 // import { createOrUpdate } from '../../lib/helpers';
 
-export const WithServicePubnub: FunctionComponent<{}> = ({ children, api, serviceName, ...props }) => {
+export const WithServicePubnub: FC<{}> = ({ children, api, serviceName, ...props }) => {
   useEffect(() => {
     if (!pubnub) {
       console.debug('Skip effect, PubNub is not configured');
