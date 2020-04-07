@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { FunctionComponent, useState, useEffect } from 'react';
 import { WithChildren, WithGithubAuth, WithGithubRepo } from '../';
 // import {
 //   DebugProps
 // } from '../../organisms';
 
-export const WithCollections = ({ children, ...props }) => {
+export const WithCollections: FunctionComponent<{}> = ({ children, ...props }) => {
   console.debug('WithCollections', { children, props });
 
   const [collections, setCollections] = useState([]);

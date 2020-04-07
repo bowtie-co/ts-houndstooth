@@ -1,30 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { FunctionComponent, useState, useEffect } from 'react';
 import { WithLoader, WithChildren } from '../';
+import { GithubClient, IGithubRepo } from '@bowtie/ts-github';
 // import {
 //   DebugProps
 // } from '../../organisms';
 
-export const WithGithubRepos = ({ children, ...props }) => {
+export interface IGithubProps {
+  github: GithubClient;
+}
+
+export const WithGithubRepos: FunctionComponent<IGithubProps> = ({ children, ...props }) => {
   console.debug('WithGithubRepos', { children, props });
 
-  const [repos, setRepos] = useState();
+  const [repos, setRepos] = useState<IGithubRepo[]>();
   const [loading, setLoading] = useState(true);
   const { github } = props;
 
   useEffect(() => {
-    setLoading(true);
+    const loadRepos = async (): Promise<void> => {
+      setRepos(await github.repos());
+    };
 
-    github
-      .repos()
-      .then((data) => {
-        setRepos(data.repos);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.warn(err);
-        setLoading(false);
-      });
-  }, [github]);
+    try {
+      setLoading(true);
+      loadRepos();
+    } catch (err) {
+      console.warn('Caught Error:', err.message || err);
+    }
+
+    setLoading(false);
+  }, [github, setLoading, setRepos]);
 
   return (
     <WithLoader loader="Pacman" isLoading={loading}>

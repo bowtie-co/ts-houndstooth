@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { WithNavbar, WithAlert, WithChildren } from '.';
 
-export const WithApp = ({ children, ...props }) => {
+export const WithApp: FunctionComponent<{}> = ({ children, ...props }) => {
   console.debug('WithApp', { children, props });
 
   return (

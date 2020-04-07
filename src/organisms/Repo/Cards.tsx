@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { navigate } from 'hookrouter';
 import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { GithubClient, IGithubRepo } from '@bowtie/ts-github';
+// import {
+//   DebugProps
+// } from '../../organisms';
 
-export const RepoCards = ({ repos }) => {
+export interface IRepoCardsProps {
+  repos: IGithubRepo[];
+}
+
+export const RepoCards: FunctionComponent<IRepoCardsProps> = ({ repos }) => {
   return (
     <Row>
       {repos.map((repo, index) => (

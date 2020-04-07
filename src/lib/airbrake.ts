@@ -4,12 +4,12 @@ const {
   REACT_APP_ENV,
   REACT_APP_PROFILE,
   REACT_APP_VERSION,
-  REACT_APP_AIRBRAKE_ID,
-  REACT_APP_AIRBRAKE_KEY
+  REACT_APP_AIRBRAKE_ID = '1234',
+  REACT_APP_AIRBRAKE_KEY = 'abc123'
 } = process.env;
 
 const airbrake = new Notifier({
-  projectId: REACT_APP_AIRBRAKE_ID,
+  projectId: parseInt(REACT_APP_AIRBRAKE_ID),
   projectKey: REACT_APP_AIRBRAKE_KEY
 });
 

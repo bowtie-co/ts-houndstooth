@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { FunctionComponent, useState, useEffect, useCallback } from 'react';
 import { storage, github } from '../../lib';
 import { WithGithub, WithLoader, WithChildren } from '../';
 
-export const WithGithubUser = ({ children, ...props }) => {
+export const WithGithubUser: FunctionComponent<{}> = ({ children, ...props }) => {
   console.debug('WithGithubUser', { children, props });
 
   const [user, setUser] = useState();

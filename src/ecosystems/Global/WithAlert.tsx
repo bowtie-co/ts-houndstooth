@@ -1,8 +1,8 @@
-import React, { useState, Fragment } from 'react';
+import React, { FunctionComponent, useState, Fragment } from 'react';
 import { WithChildren } from '.';
 import { AppAlert } from '../../organisms';
 
-export const WithAlert = ({ children, ...props }) => {
+export const WithAlert: FunctionComponent<{}> = ({ children, ...props }) => {
   console.debug('WithAlert', { props });
 
   const [alertOpen, setAlertOpen] = useState(false);

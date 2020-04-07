@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { useRoutes } from 'hookrouter';
 import { NotFound } from '../../pages';
 
-export const WithRoutes = ({ children, ...props }) => {
+export const WithRoutes: FunctionComponent<{}> = ({ children, ...props }) => {
   console.debug('WithRoutes', { children, props });
 
   const { auth, routes } = props;

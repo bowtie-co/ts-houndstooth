@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { FunctionComponent, useState, useEffect } from 'react';
 // import { navigate } from 'hookrouter';
 import { GitHub } from '@bowtie/houndstooth-sdk';
 import { auth, storage, github } from '../../lib';
@@ -6,7 +6,7 @@ import { WithGithub, WithGithubUser, WithChildren } from '../';
 import { LoginGithub } from '../../organisms';
 // import Api from '@bowtie/api';
 
-export const WithGithubAuth = ({ children, ...props }) => {
+export const WithGithubAuth: FunctionComponent<{}> = ({ children, ...props }) => {
   const [token, setToken] = useState(auth.token);
   const [isAuthorized, setIsAuthorized] = useState(auth.isAuthenticated());
 

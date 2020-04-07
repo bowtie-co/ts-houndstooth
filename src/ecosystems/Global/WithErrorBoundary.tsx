@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { airbrake } from '../../lib';
 
 export class WithErrorBoundary extends React.Component {

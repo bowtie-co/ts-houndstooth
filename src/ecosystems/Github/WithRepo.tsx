@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { FunctionComponent, useState, useEffect } from 'react';
 import { WithLoader, WithChildren } from '../';
 import { DebugProps } from '../../organisms';
 
-export const WithGithubRepo = ({ children, ...props }) => {
+export const WithGithubRepo: FunctionComponent<{}> = ({ children, ...props }) => {
   console.debug('WithGithubRepo', { children, props });
 
   const [repo, setRepo] = useState();

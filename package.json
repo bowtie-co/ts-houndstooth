@@ -4,6 +4,7 @@
   "dependencies": {
     "@airbrake/browser": "^1.0.6",
     "@bowtie/ts-api": "^0.3.4",
+    "@bowtie/ts-github": "^0.2.0",
     "@emotion/core": "^10.0.28",
     "@octokit/rest": "^17.1.4",
     "@testing-library/jest-dom": "^4.2.4",
@@ -18,6 +19,7 @@
     "async": "^3.2.0",
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
+    "eventemitter2": "^6.3.1",
     "hookrouter": "^1.2.3",
     "moment": "^2.24.0",
     "parse-link-header": "^1.0.1",

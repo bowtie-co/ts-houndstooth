@@ -9,7 +9,7 @@ const override = css`
   margin: 15% auto;
 `;
 
-export const WithLoader = ({ children, loader, isLoading, ...props }) => {
+export const WithLoader: FunctionComponent<{}> = ({ children, loader, isLoading, ...props }) => {
   const { defer = false } = props;
   const loaderName = loader ? (/Loader$/.test(loader) ? loader : `${loader}Loader`) : 'DefaultLoader';
   const LoaderComponent = Loader[loaderName] || DefaultLoader;
