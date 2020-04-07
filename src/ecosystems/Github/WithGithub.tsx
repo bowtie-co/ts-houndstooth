@@ -1,13 +1,13 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
-// import { navigate } from 'hookrouter';
-import { GitHub } from '@bowtie/houndstooth-sdk';
-import { auth, storage } from '../../lib';
-import { WithGithubAuth, WithGithubUser, WithChildren } from '../';
-import { LoginGithub } from '../../organisms';
-// import Api from '@bowtie/api';
+import React, { FunctionComponent, useEffect } from 'react';
 import { GithubClient } from '@bowtie/ts-github';
+import { WithChildren } from '../';
+import { IDefaultProps } from '../../types';
 
-export const WithGithub: FunctionComponent<{}> = ({ children, token, ...props }) => {
+export interface IWithGithubProps extends IDefaultProps {
+  token: string;
+}
+
+export const WithGithub: FunctionComponent<IWithGithubProps> = ({ children, token, ...props }) => {
   const github = new GithubClient({ token });
 
   useEffect(() => {
@@ -16,3 +16,7 @@ export const WithGithub: FunctionComponent<{}> = ({ children, token, ...props })
 
   return <WithChildren children={children} {...props} {...{ github }} />;
 };
+
+export interface IHasGithubProps extends IDefaultProps {
+  github: GithubClient;
+}

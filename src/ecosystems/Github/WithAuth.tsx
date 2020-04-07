@@ -1,21 +1,24 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
-// import { navigate } from 'hookrouter';
-import { GitHub } from '@bowtie/houndstooth-sdk';
-import { auth, storage, github } from '../../lib';
+import { auth } from '../../lib';
 import { WithGithub, WithGithubUser, WithChildren } from '../';
 import { LoginGithub } from '../../organisms';
-// import Api from '@bowtie/api';
+import { IDefaultProps } from '../../types';
 
-export const WithGithubAuth: FunctionComponent<{}> = ({ children, ...props }) => {
-  const [token, setToken] = useState(auth.token);
-  const [isAuthorized, setIsAuthorized] = useState(auth.isAuthenticated());
+export const WithGithubAuth: FunctionComponent<IDefaultProps> = ({ children, ...props }) => {
+  const [token, setToken] = useState<string>('');
+  const [isAuthorized, setIsAuthorized] = useState<boolean>(auth.isAuthenticated());
 
   useEffect(() => {
-    auth.on('authorized', (authResult) => {
-      console.error('AUTHORIZED!', authResult);
-      setToken(authResult.access_token);
+    // auth.on('authorized', (authResult) => {
+    //   console.error('AUTHORIZED!', authResult);
+    //   setToken(authResult.access_token);
+    //   setIsAuthorized(true);
+    // });
+
+    if (process.env.REACT_APP_API_AUTH_TOKEN) {
+      setToken(process.env.REACT_APP_API_AUTH_TOKEN);
       setIsAuthorized(true);
-    });
+    }
   }, [setIsAuthorized]);
 
   return !isAuthorized ? (
